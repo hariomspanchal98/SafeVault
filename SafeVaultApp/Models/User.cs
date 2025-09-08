@@ -4,6 +4,6 @@ namespace SafeVaultApp.Models
 {
     public class User : IdentityUser
     {
-        public string Department { get; set; } // optional claim
+        public string? Department { get; set; } // optional claim
     }
 }
