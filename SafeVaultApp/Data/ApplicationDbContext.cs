@@ -1,8 +1,16 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SafeVaultApp.Models; // <- important
 
-public class ApplicationDbContext : IdentityDbContext<User>
+namespace SafeVaultApp.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) { }
+    public class ApplicationDbContext : IdentityDbContext<User>
+    {
+        public DbSet<VaultItem> VaultItems { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+    }
 }
